@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
---Date        : Mon Aug 31 20:41:54 2020
+--Date        : Fri Sep 11 22:17:47 2020
 --Host        : jacob-VirtualBox running 64-bit Ubuntu 20.04.1 LTS
 --Command     : generate_target design_1_wrapper.bd
 --Design      : design_1_wrapper
@@ -13,15 +13,14 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity design_1_wrapper is
   port (
-    BoloTrigger : out STD_LOGIC;
+    CS_0 : out STD_LOGIC;
     Clk100 : in STD_LOGIC;
-    IP_CS_0 : out STD_LOGIC;
-    IP_DATABUS_0 : inout STD_LOGIC_VECTOR ( 15 downto 0 );
-    IP_DCX_0 : out STD_LOGIC;
-    IP_IM0_0 : out STD_LOGIC_VECTOR ( 0 to 0 );
-    IP_RD_0 : out STD_LOGIC;
-    IP_RESETDisplay_0 : out STD_LOGIC;
-    IP_WR_0 : out STD_LOGIC;
+    DCX_0 : out STD_LOGIC;
+    IM0_0 : out STD_LOGIC;
+    LCD_Data_0 : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    RD_0 : out STD_LOGIC;
+    ResetDisplay_0 : out STD_LOGIC;
+    WR_0 : out STD_LOGIC;
     emc_rtl_0_addr : out STD_LOGIC_VECTOR ( 31 downto 0 );
     emc_rtl_0_adv_ldn : out STD_LOGIC;
     emc_rtl_0_ben : out STD_LOGIC_VECTOR ( 0 to 0 );
@@ -52,16 +51,13 @@ architecture STRUCTURE of design_1_wrapper is
   component design_1 is
   port (
     Clk100 : in STD_LOGIC;
-    IP_DATABUS_0 : inout STD_LOGIC_VECTOR ( 15 downto 0 );
-    IP_CS_0 : out STD_LOGIC;
-    IP_DCX_0 : out STD_LOGIC;
-    IP_WR_0 : out STD_LOGIC;
-    IP_RD_0 : out STD_LOGIC;
-    IP_IM0_0 : out STD_LOGIC_VECTOR ( 0 to 0 );
-    IP_RESETDisplay_0 : out STD_LOGIC;
-    BoloTrigger : out STD_LOGIC;
-    uart_rtl_0_rxd : in STD_LOGIC;
-    uart_rtl_0_txd : out STD_LOGIC;
+    CS_0 : out STD_LOGIC;
+    DCX_0 : out STD_LOGIC;
+    WR_0 : out STD_LOGIC;
+    RD_0 : out STD_LOGIC;
+    IM0_0 : out STD_LOGIC;
+    ResetDisplay_0 : out STD_LOGIC;
+    LCD_Data_0 : out STD_LOGIC_VECTOR ( 15 downto 0 );
     spi_rtl_0_io0_i : in STD_LOGIC;
     spi_rtl_0_io0_o : out STD_LOGIC;
     spi_rtl_0_io0_t : out STD_LOGIC;
@@ -80,6 +76,8 @@ architecture STRUCTURE of design_1_wrapper is
     spi_rtl_0_ss_i : in STD_LOGIC_VECTOR ( 0 to 0 );
     spi_rtl_0_ss_o : out STD_LOGIC_VECTOR ( 0 to 0 );
     spi_rtl_0_ss_t : out STD_LOGIC;
+    uart_rtl_0_rxd : in STD_LOGIC;
+    uart_rtl_0_txd : out STD_LOGIC;
     emc_rtl_0_addr : out STD_LOGIC_VECTOR ( 31 downto 0 );
     emc_rtl_0_adv_ldn : out STD_LOGIC;
     emc_rtl_0_ben : out STD_LOGIC_VECTOR ( 0 to 0 );
@@ -161,15 +159,14 @@ architecture STRUCTURE of design_1_wrapper is
 begin
 design_1_i: component design_1
      port map (
-      BoloTrigger => BoloTrigger,
+      CS_0 => CS_0,
       Clk100 => Clk100,
-      IP_CS_0 => IP_CS_0,
-      IP_DATABUS_0(15 downto 0) => IP_DATABUS_0(15 downto 0),
-      IP_DCX_0 => IP_DCX_0,
-      IP_IM0_0(0) => IP_IM0_0(0),
-      IP_RD_0 => IP_RD_0,
-      IP_RESETDisplay_0 => IP_RESETDisplay_0,
-      IP_WR_0 => IP_WR_0,
+      DCX_0 => DCX_0,
+      IM0_0 => IM0_0,
+      LCD_Data_0(15 downto 0) => LCD_Data_0(15 downto 0),
+      RD_0 => RD_0,
+      ResetDisplay_0 => ResetDisplay_0,
+      WR_0 => WR_0,
       emc_rtl_0_addr(31 downto 0) => emc_rtl_0_addr(31 downto 0),
       emc_rtl_0_adv_ldn => emc_rtl_0_adv_ldn,
       emc_rtl_0_ben(0) => emc_rtl_0_ben(0),

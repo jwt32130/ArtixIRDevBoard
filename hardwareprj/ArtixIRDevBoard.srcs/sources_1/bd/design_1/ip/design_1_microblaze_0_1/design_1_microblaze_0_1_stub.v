@@ -1,11 +1,11 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Sat Aug 22 15:14:14 2020
+// Date        : Sun Sep  6 00:47:05 2020
 // Host        : jacob-VirtualBox running 64-bit Ubuntu 20.04.1 LTS
 // Command     : write_verilog -force -mode synth_stub -rename_top design_1_microblaze_0_1 -prefix
-//               design_1_microblaze_0_1_ design_1_microblaze_0_1_stub.v
-// Design      : design_1_microblaze_0_1
+//               design_1_microblaze_0_1_ design_1_microblaze_0_0_stub.v
+// Design      : design_1_microblaze_0_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a12tcsg325-2
 // --------------------------------------------------------------------------------

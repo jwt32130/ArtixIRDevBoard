@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="ASCII"?>
-<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="hardwareTestCode" location="/home/jacob/Documents/ArtixIRDevBoard/softwareprj/hardwareTestCode" platform="/home/jacob/Documents/ArtixIRDevBoard/softwareprj/bspProject/export/bspProject/bspProject.xpfm" platformUID="xilinx:::0.0(custom)" systemProject="hardwareTestCode_system" sysConfig="bspProject" runtime="C/C++" cpu="standalone_domain" cpuInstance="microblaze_0" os="standalone" mssSignature="80b9f5c8eae1922d415159555416f3f9">
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="hardwareTestCode" location="/home/jacob/Documents/ArtixIRDevBoard/softwareprj/hardwareTestCode" platform="/home/jacob/Documents/ArtixIRDevBoard/softwareprj/bspProject/export/bspProject/bspProject.xpfm" platformUID="xilinx:::0.0(custom)" systemProject="hardwareTestCode_system" sysConfig="bspProject" runtime="C/C++" cpu="standalone_domain" cpuInstance="microblaze_0" os="standalone" mssSignature="ec70f838f45b0e928a19a36bd26ae886">
   <configuration name="Debug" id="xilinx.gnu.mb.exe.debug.1344803720">
     <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
     <lastBuildOptions xsi:type="sdkproject:SdkOptions"/>
   </configuration>
-  <configuration name="Release" id="xilinx.gnu.mb.exe.release.1854227027">
+  <configuration name="Release" id="xilinx.gnu.mb.exe.release.1854227027" dirty="true">
     <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
     <lastBuildOptions xsi:type="sdkproject:SdkOptions"/>
   </configuration>

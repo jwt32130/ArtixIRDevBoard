@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Mon Aug 17 22:02:45 2020
+// Date        : Sun Sep  6 14:27:37 2020
 // Host        : jacob-VirtualBox running 64-bit Ubuntu 20.04.1 LTS
 // Command     : write_verilog -force -mode synth_stub -rename_top design_1_lmb_bram_1 -prefix
 //               design_1_lmb_bram_1_ design_1_lmb_bram_1_stub.v

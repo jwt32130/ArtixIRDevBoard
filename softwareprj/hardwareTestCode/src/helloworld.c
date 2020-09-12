@@ -50,17 +50,19 @@
 #include "xil_printf.h"
 #include "xparameters.h"
 #include "sleep.h"
-#include "xintc.h"
+//#include "xintc.h"
 #include "xil_exception.h"
 #include <stdbool.h>
 #include "xspi.h"
 #define LCD_ADDRESS 0x44A10000
-#define LCD_CONTROLREG (LCD_ADDRESS + 0x0)
-#define LCD_STARTADDRESS (LCD_ADDRESS + 0x4)
-#define LCD_WRITECOUNT (LCD_ADDRESS + 0x8)
-#define LCD_DATAOUT (LCD_ADDRESS + 0xC)
-#define LCD_RESETINTERRUPT (LCD_ADDRESS + 0x10)
-#define LCD_DATAREAD (LCD_ADDRESS + 0x14)
+#define LCD_COMMANDOUT (LCD_ADDRESS + 0x0)
+#define LCD_SOFTRESET (LCD_ADDRESS + 0x4)
+#define LCD_STARTSTREAMOUT (LCD_ADDRESS + 0x8)
+#define LCD_CHECKBUSY (LCD_ADDRESS + 0xC)
+#define LCD_COMMAND_BIT (0x00000100)
+#define LCD_DONE_BIT (0x00000200)
+// #define LCD_RESETINTERRUPT (LCD_ADDRESS + 0x10)
+// #define LCD_DATAREAD (LCD_ADDRESS + 0x14)
 #define FRAMESIZEBYTES (320*240*2)
 uint16_t* Frame1 = (uint16_t*)0x00000000;
 uint16_t* Frame2 = (uint16_t*)(FRAMESIZEBYTES * 1);
@@ -126,13 +128,13 @@ uint16_t* Frame5 = (uint16_t*)(FRAMESIZEBYTES * 4);
 
 static u8 ReadBuffer[PAGE_SIZE + READ_WRITE_EXTRA_BYTES + 4];
 static u8 WriteBuffer[PAGE_SIZE + READ_WRITE_EXTRA_BYTES];
-static XIntc InterruptController;
+//static XIntc InterruptController;
 #define INTC_DEVICE_ID XPAR_INTC_0_DEVICE_ID
 #define INTC_DEVICE_DISPLAY_INT_ID 0 
 
 volatile static bool DisplayInterrupt = false;
 
-static XIntc SpiInterruptController;
+//static XIntc SpiInterruptController;
 static XSpi Spi;
 
 volatile static int TransferInProgress;
@@ -543,25 +545,25 @@ int main()
     init_platform();
 
     uint32_t Status;
-    XIntc_Initialize(&InterruptController, INTC_DEVICE_ID);
-    XIntc_Connect(&InterruptController, INTC_DEVICE_DISPLAY_INT_ID,
-                    (XInterruptHandler)DisplayDeviceDriverHandler, (void *)0);
+    //XIntc_Initialize(&InterruptController, INTC_DEVICE_ID);
+    //XIntc_Connect(&InterruptController, INTC_DEVICE_DISPLAY_INT_ID,
+    //                (XInterruptHandler)DisplayDeviceDriverHandler, (void *)0);
     
-    XIntc_Enable(&InterruptController, INTC_DEVICE_DISPLAY_INT_ID);
+    //XIntc_Enable(&InterruptController, INTC_DEVICE_DISPLAY_INT_ID);
 
     // XIntc_Connect(&InterruptController, XPAR_INTC_0_SPI_0_VEC_ID,
                     // (XInterruptHandler)SpiHandler, (void *)0);
 
 
-    XIntc_Start(&InterruptController, XIN_REAL_MODE);
+    //XIntc_Start(&InterruptController, XIN_REAL_MODE);
 
     // XIntc_Enable(&InterruptController, XPAR_INTC_0_SPI_0_VEC_ID);
 
-    Xil_ExceptionInit();
-    Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT,
-                                (Xil_ExceptionHandler)XIntc_InterruptHandler,
-                                &InterruptController);
-    Xil_ExceptionEnable();
+    //Xil_ExceptionInit();
+    //Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT,
+    //                            (Xil_ExceptionHandler)XIntc_InterruptHandler,
+    //                            &InterruptController);
+    //Xil_ExceptionEnable();
 
 	// XSpi_WriteReg(XPAR_AXI_QUAD_SPI_0_BASEADDR, XSP_SRR_OFFSET, XSP_SRR_RESET_MASK);
 	// usleep(10000);
@@ -790,145 +792,174 @@ int main()
 	// }
 	
 	
+	*(int*)(LCD_SOFTRESET) = 0x00000000;
+	usleep(5);
+	*(int*)(LCD_SOFTRESET) = 0x00000001;
+	usleep(5);
 
-    sleep(1);
-    *(int*)(LCD_WRITECOUNT) = 0;
-    *(int*)(LCD_CONTROLREG) = 0x00000010; //reset
-    sleep(1);
-    *(int*)(LCD_CONTROLREG) = 0x00000000; //remove reset
-    sleep(1);
+	while(*(int*)LCD_CHECKBUSY == 0x00000001) {}
 
-    *(int*)(LCD_WRITECOUNT) = 0;
-    *(int*)(LCD_DATAOUT) = 0x00000000;  //no op
-    waitForInterrupt();
-    *(int*)(LCD_RESETINTERRUPT) = 0x00000002; 
-    sleep(1);
+	//no op
+	*(int*)(LCD_COMMANDOUT) = 0x00000000 & LCD_DONE_BIT & LCD_COMMAND_BIT;
+	while(*(int*)LCD_CHECKBUSY == 0x00000001) {}
 
-    *(int*)(LCD_DATAOUT) = 0x00000001; //software reset
-    waitForInterrupt();
-    *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
-    sleep(1);
+	//LCD command reset
+	*(int*)(LCD_COMMANDOUT) = 0x00000001 & LCD_DONE_BIT & LCD_COMMAND_BIT;
+	while(*(int*)LCD_CHECKBUSY == 0x00000001) {}
+	usleep(50);
 
-    *(int*)(LCD_DATAOUT) = 0x00000011;  //sleep out
-    waitForInterrupt();
-    *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
-    sleep(1);
+	//sleep out
+	*(int*)(LCD_COMMANDOUT) = 0x00000011 & LCD_DONE_BIT & LCD_COMMAND_BIT;
+	while(*(int*)LCD_CHECKBUSY == 0x00000001) {}
+	usleep(10);
 
-    *(int*)(LCD_CONTROLREG) = 0x00000002; //leave CS low when done
-    *(int*)(LCD_DATAOUT) = 0x0000003A;    //Pixel format
-    waitForInterrupt();
-    *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
-    sleep(1);
-
-    *(int*)(LCD_CONTROLREG) = 0x00000001; //DCX = data
-    *(int*)(LCD_DATAOUT) = 0x00000005; 		//16 bits per pixel
-    waitForInterrupt();
-    *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
-    sleep(1);
+	*(int*)(LCD_COMMANDOUT) = 0x0000003A & LCD_COMMAND_BIT;
+	while(*(int*)LCD_CHECKBUSY == 0x00000001) {}
+	*(int*)(LCD_COMMANDOUT) = 0x00000005 & LCD_DONE_BIT;
+	while(*(int*)LCD_CHECKBUSY == 0x00000001) {}
 
 
+	*(int*)(LCD_COMMANDOUT) = 0x00000029 & LCD_DONE_BIT & LCD_COMMAND_BIT;
+	while(*(int*)LCD_CHECKBUSY == 0x00000001) {}
 
-    *(int*)(LCD_CONTROLREG) = 0x00000002; //leave CS low
-    *(int*)(LCD_DATAOUT) = 0x0000002A; 		//Column address
-    waitForInterrupt();
-    *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
-    usleep(10000);
-    *(int*)(LCD_CONTROLREG) = 0x00000003; //leave CS low //dcx = data
-    *(int*)(LCD_DATAOUT) = 0x00000000; 		//79 start
-    waitForInterrupt();
-    *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
-    usleep(10000);
-    *(int*)(LCD_DATAOUT) = 0x0000004F; 		//79 start
-    waitForInterrupt();
-    *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
-    usleep(10000);
-    *(int*)(LCD_DATAOUT) = 0x00000000; 		//159 end
-    waitForInterrupt();
-    *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
-    usleep(10000);
-    *(int*)(LCD_CONTROLREG) = 0x00000001; //dcx = data
-    *(int*)(LCD_DATAOUT) = 0x0000009F; 		//159 end
-    waitForInterrupt();
-    *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
-    usleep(10000);
+    // sleep(1);
+    // *(int*)(LCD_WRITECOUNT) = 0;
+    // *(int*)(LCD_CONTROLREG) = 0x00000010; //reset
+    // sleep(1);
+    // *(int*)(LCD_CONTROLREG) = 0x00000000; //remove reset
+    // sleep(1);
 
-	*(int*)(LCD_CONTROLREG) = 0x00000002; //leave CS low
-    *(int*)(LCD_DATAOUT) = 0x0000002B; 		//Column address
-    waitForInterrupt();
-    *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
-    usleep(10000);
-    *(int*)(LCD_CONTROLREG) = 0x00000003; //leave CS low //dcx = data
-    *(int*)(LCD_DATAOUT) = 0x00000000; 		//119 start
-    waitForInterrupt();
-    *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
-    usleep(10000);
-    *(int*)(LCD_DATAOUT) = 0x00000077; 		//119 start
-    waitForInterrupt();
-    *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
-    usleep(10000);
-    *(int*)(LCD_DATAOUT) = 0x00000000; 		//199 end
-    waitForInterrupt();
-    *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
-    usleep(10000);
-    *(int*)(LCD_CONTROLREG) = 0x00000001; //dcx = data
-    *(int*)(LCD_DATAOUT) = 0x000000C7; 		//199 end
-    waitForInterrupt();
-    *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
-    usleep(10000);
+    // *(int*)(LCD_WRITECOUNT) = 0;
+    // *(int*)(LCD_DATAOUT) = 0x00000000;  //no op
+    // waitForInterrupt();
+    // *(int*)(LCD_RESETINTERRUPT) = 0x00000002; 
+    // sleep(1);
+
+    // *(int*)(LCD_DATAOUT) = 0x00000001; //software reset
+    // waitForInterrupt();
+    // *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
+    // sleep(1);
+
+    // *(int*)(LCD_DATAOUT) = 0x00000011;  //sleep out
+    // waitForInterrupt();
+    // *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
+    // sleep(1);
+
+    // *(int*)(LCD_CONTROLREG) = 0x00000002; //leave CS low when done
+    // *(int*)(LCD_DATAOUT) = 0x0000003A;    //Pixel format
+    // waitForInterrupt();
+    // *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
+    // sleep(1);
+
+    // *(int*)(LCD_CONTROLREG) = 0x00000001; //DCX = data
+    // *(int*)(LCD_DATAOUT) = 0x00000005; 		//16 bits per pixel
+    // waitForInterrupt();
+    // *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
+    // sleep(1);
 
 
 
+    // *(int*)(LCD_CONTROLREG) = 0x00000002; //leave CS low
+    // *(int*)(LCD_DATAOUT) = 0x0000002A; 		//Column address
+    // waitForInterrupt();
+    // *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
+    // usleep(10000);
+    // *(int*)(LCD_CONTROLREG) = 0x00000003; //leave CS low //dcx = data
+    // *(int*)(LCD_DATAOUT) = 0x00000000; 		//79 start
+    // waitForInterrupt();
+    // *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
+    // usleep(10000);
+    // *(int*)(LCD_DATAOUT) = 0x0000004F; 		//79 start
+    // waitForInterrupt();
+    // *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
+    // usleep(10000);
+    // *(int*)(LCD_DATAOUT) = 0x00000000; 		//159 end
+    // waitForInterrupt();
+    // *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
+    // usleep(10000);
+    // *(int*)(LCD_CONTROLREG) = 0x00000001; //dcx = data
+    // *(int*)(LCD_DATAOUT) = 0x0000009F; 		//159 end
+    // waitForInterrupt();
+    // *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
+    // usleep(10000);
+
+	// *(int*)(LCD_CONTROLREG) = 0x00000002; //leave CS low
+    // *(int*)(LCD_DATAOUT) = 0x0000002B; 		//Column address
+    // waitForInterrupt();
+    // *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
+    // usleep(10000);
+    // *(int*)(LCD_CONTROLREG) = 0x00000003; //leave CS low //dcx = data
+    // *(int*)(LCD_DATAOUT) = 0x00000000; 		//119 start
+    // waitForInterrupt();
+    // *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
+    // usleep(10000);
+    // *(int*)(LCD_DATAOUT) = 0x00000077; 		//119 start
+    // waitForInterrupt();
+    // *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
+    // usleep(10000);
+    // *(int*)(LCD_DATAOUT) = 0x00000000; 		//199 end
+    // waitForInterrupt();
+    // *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
+    // usleep(10000);
+    // *(int*)(LCD_CONTROLREG) = 0x00000001; //dcx = data
+    // *(int*)(LCD_DATAOUT) = 0x000000C7; 		//199 end
+    // waitForInterrupt();
+    // *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
+    // usleep(10000);
 
 
-    *(int*)(LCD_CONTROLREG) = 0x00000000; //normal command
-
-    *(int*)(LCD_DATAOUT) = 0x00000029;		//Display on
-    waitForInterrupt();
-    *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
-    sleep(1);
-
-    *(int*)(LCD_CONTROLREG) = 0x00000000;
 
 
-    int* FrameBuffer = (int*)XPAR_EMC_0_S_AXI_MEM0_BASEADDR;
-    uint16_t* FrameBufferWrite1 = (uint16_t*)XPAR_EMC_0_S_AXI_MEM0_BASEADDR;
-	uint32_t* FrameLoad1 = (uint32_t*)XPAR_EMC_0_S_AXI_MEM0_BASEADDR;
-    uint16_t* FrameBufferWrite2 = (uint16_t*)(XPAR_EMC_0_S_AXI_MEM0_BASEADDR + (6400*2));
-	uint32_t* FrameLoad2 = (uint32_t*)(XPAR_EMC_0_S_AXI_MEM0_BASEADDR + (6400*2));
+
+    // *(int*)(LCD_CONTROLREG) = 0x00000000; //normal command
+
+    // *(int*)(LCD_DATAOUT) = 0x00000029;		//Display on
+    // waitForInterrupt();
+    // *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
+    // sleep(1);
+
+    // *(int*)(LCD_CONTROLREG) = 0x00000000;
+
+
+    // int* FrameBuffer = (int*)XPAR_EMC_0_S_AXI_MEM0_BASEADDR;
+    // uint16_t* FrameBufferWrite1 = (uint16_t*)XPAR_EMC_0_S_AXI_MEM0_BASEADDR;
+	// uint32_t* FrameLoad1 = (uint32_t*)XPAR_EMC_0_S_AXI_MEM0_BASEADDR;
+    // uint16_t* FrameBufferWrite2 = (uint16_t*)(XPAR_EMC_0_S_AXI_MEM0_BASEADDR + (6400*2));
+	// uint32_t* FrameLoad2 = (uint32_t*)(XPAR_EMC_0_S_AXI_MEM0_BASEADDR + (6400*2));
 
 	uint32_t* FlashAddress = (uint32_t*)XPAR_AXI_QUAD_SPI_0_AXI4_BASEADDR;
 	uint32_t FlashAddressPixel = 0;
-    for(int i = 0; i < 3200; i++) {
-        FrameLoad1[i] = FlashAddress[FlashAddressPixel];
-		FlashAddressPixel++;
-    }
-    *(int*)(LCD_WRITECOUNT) = 6400;
+    // for(int i = 0; i < 3200; i++) {
+    //     FrameLoad1[i] = FlashAddress[FlashAddressPixel];
+	// 	FlashAddressPixel++;
+    // }
+    // *(int*)(LCD_WRITECOUNT) = 6400;
     while(1){
-        *(int*)(LCD_STARTADDRESS) = FrameBufferWrite1;
-        *(int*)(LCD_DATAOUT) = 0x0000002C;
+        // *(int*)(LCD_STARTADDRESS) = FrameBufferWrite1;
+        // *(int*)(LCD_DATAOUT) = 0x0000002C;
 		//load next frame
-		for(int i = 0; i < 3200; i++) {
-			FrameLoad2[i] = FlashAddress[FlashAddressPixel];
-			FlashAddressPixel++;
-		}
-        waitForInterrupt();
-        *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
-        usleep(10000);
+		// for(int i = 0; i < 3200; i++) {
+			// FrameLoad2[i] = FlashAddress[FlashAddressPixel];
+			// FlashAddressPixel++;
+		// }
+        // waitForInterrupt();
+        // *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
+        // usleep(10000);
 
 
-        *(int*)(LCD_STARTADDRESS) = FrameBufferWrite2;
-        *(int*)(LCD_DATAOUT) = 0x0000002C;
-		for(int i = 0; i < 3200; i++) {
-			FrameLoad1[i] = FlashAddress[FlashAddressPixel];
-			FlashAddressPixel++;
-		}
-        waitForInterrupt();
-        *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
-        usleep(10000);
+        // *(int*)(LCD_STARTADDRESS) = FrameBufferWrite2;
+        // *(int*)(LCD_DATAOUT) = 0x0000002C;
+		// for(int i = 0; i < 3200; i++) {
+			// FrameLoad1[i] = FlashAddress[FlashAddressPixel];
+			// FlashAddressPixel++;
+		// }
+        // waitForInterrupt();
+        // *(int*)(LCD_RESETINTERRUPT) = 0x00000002;
+        // usleep(10000);
 
-		if(FlashAddressPixel >= (396800)) {
-			FlashAddressPixel = 0;
-		}
+		// if(FlashAddressPixel >= (396800)) {
+			// FlashAddressPixel = 0;
+		// }
 
     }
     cleanup_platform();

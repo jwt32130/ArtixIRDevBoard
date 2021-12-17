@@ -2,76 +2,183 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Fri Sep 11 23:03:48 2020
-# Process ID: 1948319
+# Start of session at: Fri Oct  2 22:50:24 2020
+# Process ID: 754942
 # Current directory: /home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.runs/impl_1
 # Command line: vivado -log design_1_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source design_1_wrapper.tcl -notrace
 # Log file: /home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.runs/impl_1/design_1_wrapper.vdi
 # Journal file: /home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.runs/impl_1/vivado.jou
 #-----------------------------------------------------------
 source design_1_wrapper.tcl -notrace
-Command: open_checkpoint design_1_wrapper_routed.dcp
-
-Starting open_checkpoint Task
-
-Time (s): cpu = 00:00:00.10 ; elapsed = 00:00:00.07 . Memory (MB): peak = 2122.219 ; gain = 0.000 ; free physical = 2140 ; free virtual = 5714
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/NewIP/ILI9341StreamLCD/ILI9341StreamLCD_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/NewIP/BinData'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/NewIP/hyperbus_memory_controller_ip_package_V2L4_02/vivado'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/NewIP/PixelCorrectionHls'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/NewIP/PDFCumulativeCalc/PDFCalcCumulative'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/testhls/axistream/AxiStream_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/testhls/axilite/AxiDemo_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/NewIP/LinearStretchHls'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/customip/ClockDivider'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/customip/ATM0280B44Display'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/IRGainOffsetCorrectionHLS/IRGainOffsetCorrectionHLS'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2020.1/data/ip'.
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:lib_pkg:1.0'. The one found in IP location '/home/jacob/Documents/customip/ATM0280B44Display/ATM0280B44Display.srcs/sources_1/lib_pkg_v1_0' will take precedence over the same IP in the Xilinx installed IP.
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:lib_srl_fifo:1.0'. The one found in IP location '/home/jacob/Documents/customip/ATM0280B44Display/ATM0280B44Display.srcs/sources_1/lib_srl_fifo_v1_0' will take precedence over the same IP in the Xilinx installed IP.
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:axi_master_burst:2.0'. The one found in IP location '/home/jacob/Documents/customip/ATM0280B44Display/ATM0280B44Display.srcs/sources_1/axi_master_burst_v2_0' will take precedence over the same IP in the Xilinx installed IP.
+Command: link_design -top design_1_wrapper -part xc7a12tcsg325-2
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
 INFO: [Device 21-403] Loading part xc7a12tcsg325-2
-Netlist sorting complete. Time (s): cpu = 00:00:00.20 ; elapsed = 00:00:00.21 . Memory (MB): peak = 2122.336 ; gain = 0.000 ; free physical = 1858 ; free virtual = 5432
-INFO: [Netlist 29-17] Analyzing 672 Unisim elements for replacement
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_BinData_0_2/design_1_BinData_0_2.dcp' for cell 'design_1_i/BinData_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_BinData_0_bram_1/design_1_BinData_0_bram_1.dcp' for cell 'design_1_i/BinData_0_bram'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_ClockManager_0_1/design_1_ClockManager_0_1.dcp' for cell 'design_1_i/ClockManager_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_ILI9341StreamLCD_0_0/design_1_ILI9341StreamLCD_0_0.dcp' for cell 'design_1_i/ILI9341StreamLCD_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_bram_ctrl_0_0/design_1_axi_bram_ctrl_0_0.dcp' for cell 'design_1_i/axi_bram_ctrl_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_dma_0_0/design_1_axi_dma_0_0.dcp' for cell 'design_1_i/axi_dma_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_dma_2_0/design_1_axi_dma_2_0.dcp' for cell 'design_1_i/axi_dma_2'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_emc_0_0/design_1_axi_emc_0_0.dcp' for cell 'design_1_i/axi_emc_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_uartlite_0_0/design_1_axi_uartlite_0_0.dcp' for cell 'design_1_i/axi_uartlite_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axis_dwidth_converter_0_0/design_1_axis_dwidth_converter_0_0.dcp' for cell 'design_1_i/axis_dwidth_converter_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axis_dwidth_converter_1_0/design_1_axis_dwidth_converter_1_0.dcp' for cell 'design_1_i/axis_dwidth_converter_1'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axis_dwidth_converter_2_0/design_1_axis_dwidth_converter_2_0.dcp' for cell 'design_1_i/axis_dwidth_converter_2'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_linearStretch_0_1/design_1_linearStretch_0_1.dcp' for cell 'design_1_i/linearStretch_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_mdm_1_1/design_1_mdm_1_1.dcp' for cell 'design_1_i/mdm_1'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_microblaze_0_2/design_1_microblaze_0_2.dcp' for cell 'design_1_i/microblaze_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_rpc2_ctrl_controller_0_0/design_1_rpc2_ctrl_controller_0_0.dcp' for cell 'design_1_i/rpc2_ctrl_controller_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_rst_clk_wiz_0_20M_1/design_1_rst_clk_wiz_0_20M_1.dcp' for cell 'design_1_i/rst_clk_wiz_0_20M'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_xbar_20/design_1_xbar_20.dcp' for cell 'design_1_i/microblaze_0_axi_periph/xbar'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0.dcp' for cell 'design_1_i/microblaze_0_axi_periph/m00_couplers/auto_pc'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1.dcp' for cell 'design_1_i/microblaze_0_axi_periph/m01_couplers/auto_pc'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_2/design_1_auto_pc_2.dcp' for cell 'design_1_i/microblaze_0_axi_periph/m02_couplers/auto_pc'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_3/design_1_auto_pc_3.dcp' for cell 'design_1_i/microblaze_0_axi_periph/m03_couplers/auto_pc'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_4/design_1_auto_pc_4.dcp' for cell 'design_1_i/microblaze_0_axi_periph/m04_couplers/auto_pc'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_5/design_1_auto_pc_5.dcp' for cell 'design_1_i/microblaze_0_axi_periph/m05_couplers/auto_pc'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_6/design_1_auto_pc_6.dcp' for cell 'design_1_i/microblaze_0_axi_periph/s00_couplers/auto_pc'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_dlmb_bram_if_cntlr_2/design_1_dlmb_bram_if_cntlr_2.dcp' for cell 'design_1_i/microblaze_0_local_memory/dlmb_bram_if_cntlr'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_dlmb_v10_2/design_1_dlmb_v10_2.dcp' for cell 'design_1_i/microblaze_0_local_memory/dlmb_v10'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_ilmb_bram_if_cntlr_2/design_1_ilmb_bram_if_cntlr_2.dcp' for cell 'design_1_i/microblaze_0_local_memory/ilmb_bram_if_cntlr'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_ilmb_v10_2/design_1_ilmb_v10_2.dcp' for cell 'design_1_i/microblaze_0_local_memory/ilmb_v10'
+INFO: [Project 1-454] Reading design checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_lmb_bram_2/design_1_lmb_bram_2.dcp' for cell 'design_1_i/microblaze_0_local_memory/lmb_bram'
+Netlist sorting complete. Time (s): cpu = 00:00:00.34 ; elapsed = 00:00:00.34 . Memory (MB): peak = 2114.398 ; gain = 0.000 ; free physical = 587 ; free virtual = 2278
+INFO: [Netlist 29-17] Analyzing 1081 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2020.1
 INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Timing 38-478] Restoring timing data from binary archive.
-INFO: [Timing 38-479] Binary timing data restore complete.
-INFO: [Project 1-856] Restoring constraints from binary archive.
-INFO: [Project 1-853] Binary constraint restore complete.
-Reading XDEF placement.
-Reading placer database...
-Reading XDEF routing.
-Read XDEF File: Time (s): cpu = 00:00:00.53 ; elapsed = 00:00:00.58 . Memory (MB): peak = 2510.219 ; gain = 5.938 ; free physical = 1290 ; free virtual = 4864
-Restored from archive | CPU: 0.580000 secs | Memory: 11.987381 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:00.53 ; elapsed = 00:00:00.58 . Memory (MB): peak = 2510.219 ; gain = 5.938 ; free physical = 1290 ; free virtual = 4864
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2510.219 ; gain = 0.000 ; free physical = 1292 ; free virtual = 4866
+INFO: [Opt 31-141] Inserted 9 OBUFs to IO ports without IO buffers.
+Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_rst_clk_wiz_0_20M_1/design_1_rst_clk_wiz_0_20M_1_board.xdc] for cell 'design_1_i/rst_clk_wiz_0_20M/U0'
+Finished Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_rst_clk_wiz_0_20M_1/design_1_rst_clk_wiz_0_20M_1_board.xdc] for cell 'design_1_i/rst_clk_wiz_0_20M/U0'
+Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_rst_clk_wiz_0_20M_1/design_1_rst_clk_wiz_0_20M_1.xdc] for cell 'design_1_i/rst_clk_wiz_0_20M/U0'
+Finished Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_rst_clk_wiz_0_20M_1/design_1_rst_clk_wiz_0_20M_1.xdc] for cell 'design_1_i/rst_clk_wiz_0_20M/U0'
+Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_uartlite_0_0/design_1_axi_uartlite_0_0_board.xdc] for cell 'design_1_i/axi_uartlite_0/U0'
+Finished Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_uartlite_0_0/design_1_axi_uartlite_0_0_board.xdc] for cell 'design_1_i/axi_uartlite_0/U0'
+Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_uartlite_0_0/design_1_axi_uartlite_0_0.xdc] for cell 'design_1_i/axi_uartlite_0/U0'
+Finished Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_uartlite_0_0/design_1_axi_uartlite_0_0.xdc] for cell 'design_1_i/axi_uartlite_0/U0'
+Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_emc_0_0/design_1_axi_emc_0_0_board.xdc] for cell 'design_1_i/axi_emc_0'
+Finished Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_emc_0_0/design_1_axi_emc_0_0_board.xdc] for cell 'design_1_i/axi_emc_0'
+Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_emc_0_0/design_1_axi_emc_0_0.xdc] for cell 'design_1_i/axi_emc_0'
+Finished Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_emc_0_0/design_1_axi_emc_0_0.xdc] for cell 'design_1_i/axi_emc_0'
+Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/constrs_1/new/ports.xdc] for cell 'design_1_i/ClockManager_0/U0'
+Finished Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/constrs_1/new/ports.xdc] for cell 'design_1_i/ClockManager_0/U0'
+Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_dma_2_0/design_1_axi_dma_2_0.xdc] for cell 'design_1_i/axi_dma_2/U0'
+WARNING: [Vivado_Tcl 4-921] Waiver ID 'CDC-1' -to list should not be empty. [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_dma_2_0/design_1_axi_dma_2_0.xdc:52]
+WARNING: [Vivado_Tcl 4-921] Waiver ID 'CDC-1' -to list should not be empty. [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_dma_2_0/design_1_axi_dma_2_0.xdc:56]
+WARNING: [Vivado_Tcl 4-919] Waiver ID 'CDC-1' -from list should not be empty. [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_dma_2_0/design_1_axi_dma_2_0.xdc:61]
+Finished Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_dma_2_0/design_1_axi_dma_2_0.xdc] for cell 'design_1_i/axi_dma_2/U0'
+Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_microblaze_0_2/design_1_microblaze_0_2.xdc] for cell 'design_1_i/microblaze_0/U0'
+Finished Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_microblaze_0_2/design_1_microblaze_0_2.xdc] for cell 'design_1_i/microblaze_0/U0'
+Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_mdm_1_1/design_1_mdm_1_1.xdc] for cell 'design_1_i/mdm_1/U0'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_mdm_1_1/design_1_mdm_1_1.xdc:50]
+get_clocks: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2660.184 ; gain = 489.852 ; free physical = 182 ; free virtual = 1767
+Finished Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_mdm_1_1/design_1_mdm_1_1.xdc] for cell 'design_1_i/mdm_1/U0'
+Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_dma_0_0/design_1_axi_dma_0_0.xdc] for cell 'design_1_i/axi_dma_0/U0'
+WARNING: [Vivado_Tcl 4-921] Waiver ID 'CDC-1' -to list should not be empty. [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_dma_0_0/design_1_axi_dma_0_0.xdc:52]
+WARNING: [Vivado_Tcl 4-921] Waiver ID 'CDC-1' -to list should not be empty. [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_dma_0_0/design_1_axi_dma_0_0.xdc:56]
+WARNING: [Vivado_Tcl 4-919] Waiver ID 'CDC-1' -from list should not be empty. [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_dma_0_0/design_1_axi_dma_0_0.xdc:61]
+Finished Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_dma_0_0/design_1_axi_dma_0_0.xdc] for cell 'design_1_i/axi_dma_0/U0'
+Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/constrs_1/new/pins.xdc]
+Finished Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/constrs_1/new/pins.xdc]
+Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_dma_2_0/design_1_axi_dma_2_0_clocks.xdc] for cell 'design_1_i/axi_dma_2/U0'
+Finished Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_dma_2_0/design_1_axi_dma_2_0_clocks.xdc] for cell 'design_1_i/axi_dma_2/U0'
+Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_dma_0_0/design_1_axi_dma_0_0_clocks.xdc] for cell 'design_1_i/axi_dma_0/U0'
+Finished Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_dma_0_0/design_1_axi_dma_0_0_clocks.xdc] for cell 'design_1_i/axi_dma_0/U0'
+Sourcing Tcl File [/tools/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl] for cell 'design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_MM2S_FULL.I_MM2S_FULL_WRAPPER/GEN_INCLUDE_MM2S_SF.I_RD_SF/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst'
+Finished Sourcing Tcl File [/tools/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl] for cell 'design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_MM2S_FULL.I_MM2S_FULL_WRAPPER/GEN_INCLUDE_MM2S_SF.I_RD_SF/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst'
+Sourcing Tcl File [/tools/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl] for cell 'design_1_i/axi_dma_2/U0/I_PRMRY_DATAMOVER/GEN_MM2S_FULL.I_MM2S_FULL_WRAPPER/GEN_INCLUDE_MM2S_SF.I_RD_SF/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst'
+Finished Sourcing Tcl File [/tools/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl] for cell 'design_1_i/axi_dma_2/U0/I_PRMRY_DATAMOVER/GEN_MM2S_FULL.I_MM2S_FULL_WRAPPER/GEN_INCLUDE_MM2S_SF.I_RD_SF/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst'
+Sourcing Tcl File [/tools/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl] for cell 'design_1_i/axi_dma_2/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst'
+Finished Sourcing Tcl File [/tools/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl] for cell 'design_1_i/axi_dma_2/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst'
+Sourcing Tcl File [/tools/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl] for cell 'design_1_i/axi_dma_2/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst'
+Finished Sourcing Tcl File [/tools/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl] for cell 'design_1_i/axi_dma_2/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst'
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+WARNING: [Constraints 18-5572] Instance design_1_i/axi_emc_0/U0/EMC_CTRL_I/IO_REGISTERS_I/mem_ben_reg_reg[0] has IOB constraint set, However, the instance does not seem to have valid I/O connection to be placed into I/O. The constraint on the instance will be ignored.
+WARNING: [Constraints 18-5572] Instance design_1_i/axi_emc_0/U0/EMC_CTRL_I/IO_REGISTERS_I/mem_ce_reg_reg[0] has IOB constraint set, However, the instance does not seem to have valid I/O connection to be placed into I/O. The constraint on the instance will be ignored.
+WARNING: [Constraints 18-5572] Instance design_1_i/axi_emc_0/U0/EMC_CTRL_I/IO_REGISTERS_I/mem_qwen_reg_reg[0] has IOB constraint set, However, the instance does not seem to have valid I/O connection to be placed into I/O. The constraint on the instance will be ignored.
+WARNING: [Constraints 18-5572] Instance design_1_i/axi_emc_0/U0/EMC_CTRL_I/IO_REGISTERS_I/mem_rnw_reg_reg has IOB constraint set, However, the instance does not seem to have valid I/O connection to be placed into I/O. The constraint on the instance will be ignored.
+WARNING: [Constraints 18-5572] Instance design_1_i/axi_emc_0/U0/EMC_CTRL_I/IO_REGISTERS_I/mem_rpn_reg_reg has IOB constraint set, However, the instance does not seem to have valid I/O connection to be placed into I/O. The constraint on the instance will be ignored.
+WARNING: [Constraints 18-5572] Instance design_1_i/axi_emc_0/U0/mem_a_int_reg[19] has IOB constraint set, However, the instance does not seem to have valid I/O connection to be placed into I/O. The constraint on the instance will be ignored.
+WARNING: [Constraints 18-5572] Instance design_1_i/axi_emc_0/U0/mem_a_int_reg[20] has IOB constraint set, However, the instance does not seem to have valid I/O connection to be placed into I/O. The constraint on the instance will be ignored.
+WARNING: [Constraints 18-5572] Instance design_1_i/axi_emc_0/U0/mem_a_int_reg[21] has IOB constraint set, However, the instance does not seem to have valid I/O connection to be placed into I/O. The constraint on the instance will be ignored.
+WARNING: [Constraints 18-5572] Instance design_1_i/axi_emc_0/U0/mem_a_int_reg[22] has IOB constraint set, However, the instance does not seem to have valid I/O connection to be placed into I/O. The constraint on the instance will be ignored.
+WARNING: [Constraints 18-5572] Instance design_1_i/axi_emc_0/U0/mem_a_int_reg[23] has IOB constraint set, However, the instance does not seem to have valid I/O connection to be placed into I/O. The constraint on the instance will be ignored.
+WARNING: [Constraints 18-5572] Instance design_1_i/axi_emc_0/U0/mem_a_int_reg[24] has IOB constraint set, However, the instance does not seem to have valid I/O connection to be placed into I/O. The constraint on the instance will be ignored.
+WARNING: [Constraints 18-5572] Instance design_1_i/axi_emc_0/U0/mem_a_int_reg[25] has IOB constraint set, However, the instance does not seem to have valid I/O connection to be placed into I/O. The constraint on the instance will be ignored.
+WARNING: [Constraints 18-5572] Instance design_1_i/axi_emc_0/U0/mem_a_int_reg[26] has IOB constraint set, However, the instance does not seem to have valid I/O connection to be placed into I/O. The constraint on the instance will be ignored.
+WARNING: [Constraints 18-5572] Instance design_1_i/axi_emc_0/U0/mem_a_int_reg[27] has IOB constraint set, However, the instance does not seem to have valid I/O connection to be placed into I/O. The constraint on the instance will be ignored.
+WARNING: [Constraints 18-5572] Instance design_1_i/axi_emc_0/U0/mem_a_int_reg[28] has IOB constraint set, However, the instance does not seem to have valid I/O connection to be placed into I/O. The constraint on the instance will be ignored.
+WARNING: [Constraints 18-5572] Instance design_1_i/axi_emc_0/U0/mem_a_int_reg[29] has IOB constraint set, However, the instance does not seem to have valid I/O connection to be placed into I/O. The constraint on the instance will be ignored.
+WARNING: [Constraints 18-5572] Instance design_1_i/axi_emc_0/U0/mem_a_int_reg[30] has IOB constraint set, However, the instance does not seem to have valid I/O connection to be placed into I/O. The constraint on the instance will be ignored.
+WARNING: [Constraints 18-5572] Instance design_1_i/axi_emc_0/U0/mem_a_int_reg[31] has IOB constraint set, However, the instance does not seem to have valid I/O connection to be placed into I/O. The constraint on the instance will be ignored.
+Generating merged BMM file for the design top 'design_1_wrapper'...
+INFO: [Memdata 28-144] Successfully populated the BRAM INIT strings from the following elf files: /home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_microblaze_0_2/data/mb_bootloop_le.elf 
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2988.344 ; gain = 0.000 ; free physical = 243 ; free virtual = 1781
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 189 instances were transformed.
-  IOBUF => IOBUF (IBUF, OBUFT): 14 instances
+  A total of 205 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 8 instances
   LUT6_2 => LUT6_2 (LUT5, LUT6): 97 instances
+  RAM16X1D => RAM32X1D (RAMD32(x2)): 4 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 30 instances
+  RAM32M => RAM32M (inverted pins: WCLK) (RAMD32(x6), RAMS32(x2)): 2 instances
   RAM32X1D => RAM32X1D (RAMD32(x2)): 64 instances
-  SRLC16E => SRL16E: 1 instance 
-  SRLC32E => SRL16E: 13 instances
 
-INFO: [Project 1-604] Checkpoint was created with Vivado v2020.1 (64-bit) build 2902540
-open_checkpoint: Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 2510.219 ; gain = 388.000 ; free physical = 1292 ; free virtual = 4866
-INFO: [Memdata 28-208] The XPM instance: <design_1_i/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/XIP_MODE_GEN.AXI_QSPI_XIP_I/XIP_RECEIVE_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst> is part of IP: <design_1_i/axi_quad_spi_0>. This XPM instance will be excluded from the .mmi because updatemem is prohibited from making changes to an XPM that is part of an IP.
-INFO: [Memdata 28-208] The XPM instance: <design_1_i/axi_dma_1/U0/I_PRMRY_DATAMOVER/GEN_MM2S_FULL.I_MM2S_FULL_WRAPPER/GEN_INCLUDE_MM2S_SF.I_RD_SF/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst> is part of IP: <design_1_i/axi_dma_1>. This XPM instance will be excluded from the .mmi because updatemem is prohibited from making changes to an XPM that is part of an IP.
-Command: write_bitstream -force design_1_wrapper.bit
+53 Infos, 27 Warnings, 0 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 2988.344 ; gain = 874.039 ; free physical = 243 ; free virtual = 1781
+Command: opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a12t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a12t'
-Running DRC as a precondition to command write_bitstream
-INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1704] No user IP repositories specified
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2020.1/data/ip'.
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
 INFO: [DRC 23-27] Running DRC with 8 threads
-WARNING: [DRC BUFC-1] Input Buffer Connections: Input buffer spi_rtl_0_sck_iobuf/IBUF has no loads. It is recommended to have an input buffer drive an internal load.
-WARNING: [DRC BUFC-1] Input Buffer Connections: Input buffer spi_rtl_0_ss_iobuf_0/IBUF has no loads. It is recommended to have an input buffer drive an internal load.
-INFO: [DRC REQP-165] writefirst: Synchronous clocking is detected for BRAM (design_1_i/axi_quad_spi_0/U0/NO_DUAL_QUAD_MODE.QSPI_NORMAL/XIP_MODE_GEN.AXI_QSPI_XIP_I/XIP_RECEIVE_FIFO_II/xpm_fifo_instance.xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg) in SDP mode with WRITE_FIRST write-mode. This is the preferred mode for best power characteristics, however it may exhibit address collisions if the same address appears on both read and write ports resulting in unknown or corrupted read data. It is suggested to confirm via simulation that an address collision never occurs and if so it is suggested to try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
-INFO: [DRC REQP-181] writefirst: Synchronous clocking is detected for BRAM (design_1_i/axi_dma_1/U0/I_PRMRY_DATAMOVER/GEN_MM2S_FULL.I_MM2S_FULL_WRAPPER/GEN_INCLUDE_MM2S_SF.I_RD_SF/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg) in SDP mode with WRITE_FIRST write-mode. This is the preferred mode for best power characteristics, however it may exhibit address collisions if the same address appears on both read and write ports resulting in unknown or corrupted read data. It is suggested to confirm via simulation that an address collision never occurs and if so it is suggested to try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
-INFO: [Vivado 12-3199] DRC finished with 0 Errors, 2 Warnings, 2 Advisories
-INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
-INFO: [Designutils 20-2272] Running write_bitstream with 8 threads.
-Loading data files...
-Loading site data...
-Loading route data...
-Processing options...
-Creating bitmap...
-Creating bitstream...
-Bitstream compression saved 4123136 bits.
-Writing bitstream ./design_1_wrapper.bit...
-INFO: [Vivado 12-1842] Bitgen Completed Successfully.
-INFO: [Project 1-120] WebTalk data collection is mandatory when using a WebPACK part without a full Vivado license. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
-INFO: [Common 17-186] '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.runs/impl_1/usage_statistics_webtalk.xml' has been successfully sent to Xilinx on Fri Sep 11 23:04:25 2020. For additional details about this file, please refer to the WebTalk help file at /tools/Xilinx/Vivado/2020.1/doc/webtalk_introduction.html.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_cs0n/UNCONN_OUT has multiple drivers: design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_cs0n/q_reg/Q, and design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_cs0n/q_reg__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_cs1n/UNCONN_OUT has multiple drivers: design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_cs1n/q_reg/Q, and design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_cs1n/q_reg__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_dq_0/rpc_dq_out[0] has multiple drivers: design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_dq_0/q_reg/Q, and design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_dq_0/q_reg__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_dq_1/rpc_dq_out[0] has multiple drivers: design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_dq_1/q_reg__0/Q, and design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_dq_1/q_reg/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_dq_2/rpc_dq_out[0] has multiple drivers: design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_dq_2/q_reg__0/Q, and design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_dq_2/q_reg/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_dq_3/rpc_dq_out[0] has multiple drivers: design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_dq_3/q_reg/Q, and design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_dq_3/q_reg__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_dq_4/rpc_dq_out[0] has multiple drivers: design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_dq_4/q_reg/Q, and design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_dq_4/q_reg__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_dq_5/rpc_dq_out[0] has multiple drivers: design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_dq_5/q_reg/Q, and design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_dq_5/q_reg__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_dq_6/rpc_dq_out[0] has multiple drivers: design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_dq_6/q_reg/Q, and design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_dq_6/q_reg__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_dq_7/rpc_dq_out[0] has multiple drivers: design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_dq_7/q_reg__0/Q, and design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_dq_7/q_reg/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_rds/UNCONN_OUT has multiple drivers: design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_rds/q_reg__0/Q, and design_1_i/rpc2_ctrl_controller_0/inst/rpc2_ctrl_io/oddr_rds/q_reg/Q.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port RPC_DQ_0[0] expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port RPC_DQ_0[1] expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port RPC_DQ_0[2] expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port RPC_DQ_0[3] expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port RPC_DQ_0[4] expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port RPC_DQ_0[5] expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port RPC_DQ_0[6] expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port RPC_DQ_0[7] expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port RPC_RWDS_0 expects both input and output buffering but the buffers are incomplete.
+INFO: [Project 1-461] DRC finished with 11 Errors, 9 Warnings
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+ERROR: [Vivado_Tcl 4-78] Error(s) found during DRC. Opt_design not run.
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.85 . Memory (MB): peak = 2988.344 ; gain = 0.000 ; free physical = 233 ; free virtual = 1771
 INFO: [Common 17-83] Releasing license: Implementation
-27 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
-write_bitstream completed successfully
-write_bitstream: Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 2964.859 ; gain = 442.734 ; free physical = 1222 ; free virtual = 4797
-INFO: [Common 17-206] Exiting Vivado at Fri Sep 11 23:04:25 2020...
+58 Infos, 36 Warnings, 0 Critical Warnings and 12 Errors encountered.
+opt_design failed
+ERROR: [Common 17-39] 'opt_design' failed due to earlier errors.
+
+INFO: [Common 17-206] Exiting Vivado at Fri Oct  2 22:50:52 2020...

@@ -70,6 +70,8 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "design_1_axis_dwidth_converter_1_0_synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 3
+set_param xicom.use_bs_reader 1
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 OPTRACE "Creating in-memory project" START { }
@@ -86,10 +88,9 @@ set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property ip_repo_paths {
   /home/jacob/Documents/NewIP/ILI9341StreamLCD/ILI9341StreamLCD_1.0
-  /home/jacob/Documents/customip/ATM0280B44DisplayStream/ATM0280B44DisplayStream_1.0
   /home/jacob/Documents/testhls/axistream/AxiStream_1.0
   /home/jacob/Documents/testhls/axilite/AxiDemo_1.0
-  /home/jacob/Documents/ArtixIRDevBoard/Arm_ipi_repository
+  /home/jacob/Documents/NewIP/LinearStretchHls
   /home/jacob/Documents/customip/ClockDivider
   /home/jacob/Documents/customip/ATM0280B44Display
   /home/jacob/Documents/IRGainOffsetCorrectionHLS/IRGainOffsetCorrectionHLS

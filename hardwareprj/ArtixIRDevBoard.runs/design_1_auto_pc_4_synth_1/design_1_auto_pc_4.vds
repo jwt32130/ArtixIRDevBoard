@@ -1,0 +1,30 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Sat Jan 16 18:46:51 2021
+# Process ID: 3697
+# Current directory: /home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.runs/design_1_auto_pc_4_synth_1
+# Command line: vivado -log design_1_auto_pc_4.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_auto_pc_4.tcl
+# Log file: /home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.runs/design_1_auto_pc_4_synth_1/design_1_auto_pc_4.vds
+# Journal file: /home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.runs/design_1_auto_pc_4_synth_1/vivado.jou
+#-----------------------------------------------------------
+source design_1_auto_pc_4.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/NewIP/ILI9341StreamLCD/ILI9341StreamLCD_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/NewIP/BinData'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/NewIP/hyperbus_memory_controller_ip_package_V2L4_02/vivado'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/NewIP/PixelCorrectionHls'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/NewIP/PDFCumulativeCalc/PDFCalcCumulative'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/testhls/axistream/AxiStream_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/testhls/axilite/AxiDemo_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/NewIP/LinearStretchHls'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/customip/ClockDivider'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/customip/ATM0280B44Display'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/IRGainOffsetCorrectionHLS/IRGainOffsetCorrectionHLS'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2020.1/data/ip'.
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:lib_pkg:1.0'. The one found in IP location '/home/jacob/Documents/customip/ATM0280B44Display/ATM0280B44Display.srcs/sources_1/lib_pkg_v1_0' will take precedence over the same IP in the Xilinx installed IP.
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:lib_srl_fifo:1.0'. The one found in IP location '/home/jacob/Documents/customip/ATM0280B44Display/ATM0280B44Display.srcs/sources_1/lib_srl_fifo_v1_0' will take precedence over the same IP in the Xilinx installed IP.
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:axi_master_burst:2.0'. The one found in IP location '/home/jacob/Documents/customip/ATM0280B44Display/ATM0280B44Display.srcs/sources_1/axi_master_burst_v2_0' will take precedence over the same IP in the Xilinx installed IP.
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP design_1_auto_pc_4, cache-ID = f36dc92bbb6f40d5.
+INFO: [Common 17-206] Exiting Vivado at Sat Jan 16 18:46:58 2021...

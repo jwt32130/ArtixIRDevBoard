@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a12tcsg325-2" LaunchTime="1599881697">
-  <File Type="VDS-TIMING-PB" Name="design_1_wrapper_timing_summary_synth.pb"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="design_1_wrapper_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="design_1_wrapper.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="design_1_wrapper_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="design_1_wrapper_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="design_1_wrapper_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="design_1_wrapper.vds"/>
+<GenRun Id="synth_1" LaunchPart="xc7a12tcsg325-2" LaunchTime="1601696939">
   <File Type="REPORTS-TCL" Name="design_1_wrapper_reports.tcl"/>
   <File Type="PA-TCL" Name="design_1_wrapper.tcl"/>
+  <File Type="RDS-DCP" Name="design_1_wrapper.dcp"/>
+  <File Type="RDS-RDS" Name="design_1_wrapper.vds"/>
+  <File Type="RDS-UTIL" Name="design_1_wrapper_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="design_1_wrapper_utilization_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/bd/design_1/design_1.bd">
@@ -60,11 +57,17 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_axi_bram_ctrl_0_bram_2"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_dlmb_bram_if_cntlr_2"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_xbar_20"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_axi_emc_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_xbar_14"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_ILI9341StreamLCD_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_axi_dma_1_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_axi_dma_2_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_axi_uartlite_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_axis_dwidth_converter_2_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_linearStretch_0_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_axi_dma_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_rst_clk_wiz_0_20M_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_ClockManager_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_axis_dwidth_converter_1_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_clk_wiz_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_rpc2_ctrl_controller_0_0"/>
 </GenRun>

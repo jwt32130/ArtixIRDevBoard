@@ -2,8 +2,8 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Fri Sep 11 22:29:26 2020
-# Process ID: 1815808
+# Start of session at: Wed Sep 30 20:58:50 2020
+# Process ID: 553389
 # Current directory: /home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.runs/design_1_axi_emc_0_0_synth_1
 # Command line: vivado -log design_1_axi_emc_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_axi_emc_0_0.tcl
 # Log file: /home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.runs/design_1_axi_emc_0_0_synth_1/design_1_axi_emc_0_0.vds
@@ -12,11 +12,12 @@
 source design_1_axi_emc_0_0.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/NewIP/ILI9341StreamLCD/ILI9341StreamLCD_1.0'.
-WARNING: [IP_Flow 19-2248] Failed to load user IP repository '/home/jacob/Documents/customip/ATM0280B44DisplayStream/ATM0280B44DisplayStream_1.0'; Can't find the specified path.
-If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/NewIP/BinData'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/NewIP/PixelCorrectionHls'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/NewIP/PDFCumulativeCalc/PDFCalcCumulative'.
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/testhls/axistream/AxiStream_1.0'.
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/testhls/axilite/AxiDemo_1.0'.
-INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/ArtixIRDevBoard/Arm_ipi_repository'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/NewIP/LinearStretchHls'.
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/customip/ClockDivider'.
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/customip/ATM0280B44Display'.
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/jacob/Documents/IRGainOffsetCorrectionHLS/IRGainOffsetCorrectionHLS'.
@@ -31,15 +32,15 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a12t
 INFO: [Device 21-403] Loading part xc7a12tcsg325-2
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 1815858
+INFO: [Synth 8-7075] Helper process launched with PID 553441
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2114.398 ; gain = 0.000 ; free physical = 785 ; free virtual = 4223
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 2108.461 ; gain = 0.000 ; free physical = 4474 ; free virtual = 6540
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'design_1_axi_emc_0_0' [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_emc_0_0/synth/design_1_axi_emc_0_0.vhd:119]
 	Parameter C_FAMILY bound to: artix7 - type: string 
 	Parameter C_INSTANCE bound to: axi_emc_inst - type: string 
-	Parameter C_AXI_CLK_PERIOD_PS bound to: 50000 - type: integer 
-	Parameter C_LFLASH_PERIOD_PS bound to: 50000 - type: integer 
+	Parameter C_AXI_CLK_PERIOD_PS bound to: 40000 - type: integer 
+	Parameter C_LFLASH_PERIOD_PS bound to: 40000 - type: integer 
 	Parameter C_LINEAR_FLASH_SYNC_BURST bound to: 0 - type: integer 
 	Parameter C_USE_STARTUP bound to: 0 - type: integer 
 	Parameter C_PORT_DIFF bound to: 0 - type: integer 
@@ -50,7 +51,7 @@ INFO: [Synth 8-638] synthesizing module 'design_1_axi_emc_0_0' [/home/jacob/Docu
 	Parameter C_S_AXI_MEM_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_MEM_ID_WIDTH bound to: 2 - type: integer 
 	Parameter C_S_AXI_MEM0_BASEADDR bound to: 32'b01100000000000000000000000000000 
-	Parameter C_S_AXI_MEM0_HIGHADDR bound to: 32'b01100000000001111111111111111111 
+	Parameter C_S_AXI_MEM0_HIGHADDR bound to: 32'b01100001111111111111111111111111 
 	Parameter C_S_AXI_MEM1_BASEADDR bound to: 32'b10110000000000000000000000000000 
 	Parameter C_S_AXI_MEM1_HIGHADDR bound to: 32'b10111111111111111111111111111111 
 	Parameter C_S_AXI_MEM2_BASEADDR bound to: 32'b11000000000000000000000000000000 
@@ -87,7 +88,7 @@ INFO: [Synth 8-638] synthesizing module 'design_1_axi_emc_0_0' [/home/jacob/Docu
 	Parameter C_THZOE_PS_MEM_0 bound to: 20000 - type: integer 
 	Parameter C_TWC_PS_MEM_0 bound to: 55000 - type: integer 
 	Parameter C_TWP_PS_MEM_0 bound to: 40000 - type: integer 
-	Parameter C_TWPH_PS_MEM_0 bound to: 0 - type: integer 
+	Parameter C_TWPH_PS_MEM_0 bound to: 5000 - type: integer 
 	Parameter C_TLZWE_PS_MEM_0 bound to: 5000 - type: integer 
 	Parameter C_WR_REC_TIME_MEM_0 bound to: 0 - type: integer 
 	Parameter C_SYNCH_PIPEDELAY_1 bound to: 1 - type: integer 
@@ -127,8 +128,8 @@ INFO: [Synth 8-3491] module 'axi_emc' declared at '/home/jacob/Documents/ArtixIR
 INFO: [Synth 8-638] synthesizing module 'axi_emc' [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ipshared/1151/hdl/axi_emc_v3_0_vh_rfs.vhd:3738]
 	Parameter C_FAMILY bound to: artix7 - type: string 
 	Parameter C_INSTANCE bound to: axi_emc_inst - type: string 
-	Parameter C_AXI_CLK_PERIOD_PS bound to: 50000 - type: integer 
-	Parameter C_LFLASH_PERIOD_PS bound to: 50000 - type: integer 
+	Parameter C_AXI_CLK_PERIOD_PS bound to: 40000 - type: integer 
+	Parameter C_LFLASH_PERIOD_PS bound to: 40000 - type: integer 
 	Parameter C_LINEAR_FLASH_SYNC_BURST bound to: 0 - type: integer 
 	Parameter C_USE_STARTUP bound to: 0 - type: integer 
 	Parameter C_PORT_DIFF bound to: 0 - type: integer 
@@ -139,7 +140,7 @@ INFO: [Synth 8-638] synthesizing module 'axi_emc' [/home/jacob/Documents/ArtixIR
 	Parameter C_S_AXI_MEM_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_MEM_ID_WIDTH bound to: 2 - type: integer 
 	Parameter C_S_AXI_MEM0_BASEADDR bound to: 1610612736 - type: integer 
-	Parameter C_S_AXI_MEM0_HIGHADDR bound to: 1611137023 - type: integer 
+	Parameter C_S_AXI_MEM0_HIGHADDR bound to: 1644167167 - type: integer 
 	Parameter C_S_AXI_MEM1_BASEADDR bound to: -1342177280 - type: integer 
 	Parameter C_S_AXI_MEM1_HIGHADDR bound to: -1073741825 - type: integer 
 	Parameter C_S_AXI_MEM2_BASEADDR bound to: -1073741824 - type: integer 
@@ -176,7 +177,7 @@ INFO: [Synth 8-638] synthesizing module 'axi_emc' [/home/jacob/Documents/ArtixIR
 	Parameter C_THZOE_PS_MEM_0 bound to: 20000 - type: integer 
 	Parameter C_TWC_PS_MEM_0 bound to: 55000 - type: integer 
 	Parameter C_TWP_PS_MEM_0 bound to: 40000 - type: integer 
-	Parameter C_TWPH_PS_MEM_0 bound to: 0 - type: integer 
+	Parameter C_TWPH_PS_MEM_0 bound to: 5000 - type: integer 
 	Parameter C_TLZWE_PS_MEM_0 bound to: 5000 - type: integer 
 	Parameter C_WR_REC_TIME_MEM_0 bound to: 0 - type: integer 
 	Parameter C_SYNCH_PIPEDELAY_1 bound to: 1 - type: integer 
@@ -218,14 +219,14 @@ INFO: [Synth 8-638] synthesizing module 'axi_emc_native_interface' [/home/jacob/
 	Parameter C_S_AXI_MEM_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_MEM_ID_WIDTH bound to: 2 - type: integer 
 	Parameter C_S_AXI_MEM0_BASEADDR bound to: 1610612736 - type: integer 
-	Parameter C_S_AXI_MEM0_HIGHADDR bound to: 1611137023 - type: integer 
+	Parameter C_S_AXI_MEM0_HIGHADDR bound to: 1644167167 - type: integer 
 	Parameter C_S_AXI_MEM1_BASEADDR bound to: -1342177280 - type: integer 
 	Parameter C_S_AXI_MEM1_HIGHADDR bound to: -1073741825 - type: integer 
 	Parameter C_S_AXI_MEM2_BASEADDR bound to: -1073741824 - type: integer 
 	Parameter C_S_AXI_MEM2_HIGHADDR bound to: -805306369 - type: integer 
 	Parameter C_S_AXI_MEM3_BASEADDR bound to: -805306368 - type: integer 
 	Parameter C_S_AXI_MEM3_HIGHADDR bound to: -536870913 - type: integer 
-	Parameter AXI_ARD_ADDR_RANGE_ARRAY bound to: 128'b00000000000000000000000000000000011000000000000000000000000000000000000000000000000000000000000001100000000001111111111111111111 
+	Parameter AXI_ARD_ADDR_RANGE_ARRAY bound to: 128'b00000000000000000000000000000000011000000000000000000000000000000000000000000000000000000000000001100001111111111111111111111111 
 	Parameter AXI_ARD_NUM_CE_ARRAY bound to: 32'b00000000000000000000000000000001 
 	Parameter C_NUM_BANKS_MEM bound to: 1 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'axi_emc_addr_gen' [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ipshared/1151/hdl/axi_emc_v3_0_vh_rfs.vhd:614]
@@ -235,7 +236,7 @@ INFO: [Synth 8-256] done synthesizing module 'axi_emc_addr_gen' (1#1) [/home/jac
 INFO: [Synth 8-638] synthesizing module 'axi_emc_address_decode' [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ipshared/1151/hdl/axi_emc_v3_0_vh_rfs.vhd:1250]
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 32 - type: integer 
 	Parameter C_ADDR_DECODE_BITS bound to: 32 - type: integer 
-	Parameter C_ARD_ADDR_RANGE_ARRAY bound to: 128'b00000000000000000000000000000000011000000000000000000000000000000000000000000000000000000000000001100000000001111111111111111111 
+	Parameter C_ARD_ADDR_RANGE_ARRAY bound to: 128'b00000000000000000000000000000000011000000000000000000000000000000000000000000000000000000000000001100001111111111111111111111111 
 	Parameter C_ARD_NUM_CE_ARRAY bound to: 32'b00000000000000000000000000000001 
 	Parameter C_FAMILY bound to: artix7 - type: string 
 INFO: [Synth 8-256] done synthesizing module 'axi_emc_address_decode' (2#1) [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ipshared/1151/hdl/axi_emc_v3_0_vh_rfs.vhd:1250]
@@ -264,7 +265,7 @@ INFO: [Synth 8-638] synthesizing module 'EMC' [/home/jacob/Documents/ArtixIRDevB
 	Parameter C_IPIF_AWIDTH bound to: 32 - type: integer 
 	Parameter C_PAGE_SIZE bound to: 16 - type: integer 
 	Parameter C_MEM0_BASEADDR bound to: 1610612736 - type: integer 
-	Parameter C_MEM0_HIGHADDR bound to: 1611137023 - type: integer 
+	Parameter C_MEM0_HIGHADDR bound to: 1644167167 - type: integer 
 	Parameter C_MEM1_BASEADDR bound to: -1342177280 - type: integer 
 	Parameter C_MEM1_HIGHADDR bound to: -1073741825 - type: integer 
 	Parameter C_MEM2_BASEADDR bound to: -1073741824 - type: integer 
@@ -293,7 +294,7 @@ INFO: [Synth 8-638] synthesizing module 'EMC' [/home/jacob/Documents/ArtixIRDevB
 	Parameter C_INCLUDE_DATAWIDTH_MATCHING_1 bound to: 1 - type: integer 
 	Parameter C_INCLUDE_DATAWIDTH_MATCHING_2 bound to: 1 - type: integer 
 	Parameter C_INCLUDE_DATAWIDTH_MATCHING_3 bound to: 1 - type: integer 
-	Parameter C_BUS_CLOCK_PERIOD_PS bound to: 50000 - type: integer 
+	Parameter C_BUS_CLOCK_PERIOD_PS bound to: 40000 - type: integer 
 	Parameter C_SYNCH_MEM_0 bound to: 0 - type: integer 
 	Parameter C_SYNCH_PIPEDELAY_0 bound to: 1 - type: integer 
 	Parameter C_TCEDV_PS_MEM_0 bound to: 55000 - type: integer 
@@ -303,7 +304,7 @@ INFO: [Synth 8-638] synthesizing module 'EMC' [/home/jacob/Documents/ArtixIRDevB
 	Parameter C_THZOE_PS_MEM_0 bound to: 20000 - type: integer 
 	Parameter C_TWC_PS_MEM_0 bound to: 55000 - type: integer 
 	Parameter C_TWP_PS_MEM_0 bound to: 40000 - type: integer 
-	Parameter C_TWPH_PS_MEM_0 bound to: 0 - type: integer 
+	Parameter C_TWPH_PS_MEM_0 bound to: 5000 - type: integer 
 	Parameter C_TLZWE_PS_MEM_0 bound to: 5000 - type: integer 
 	Parameter C_WR_REC_TIME_MEM_0 bound to: 0 - type: integer 
 	Parameter C_SYNCH_MEM_1 bound to: 1 - type: integer 
@@ -1121,18 +1122,18 @@ INFO: [Synth 8-256] done synthesizing module 'EMC' (21#1) [/home/jacob/Documents
 INFO: [Synth 8-256] done synthesizing module 'axi_emc' (22#1) [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ipshared/1151/hdl/axi_emc_v3_0_vh_rfs.vhd:3738]
 INFO: [Synth 8-256] done synthesizing module 'design_1_axi_emc_0_0' (23#1) [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_emc_0_0/synth/design_1_axi_emc_0_0.vhd:119]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2127.305 ; gain = 12.906 ; free physical = 1467 ; free virtual = 4906
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:12 . Memory (MB): peak = 2127.367 ; gain = 18.906 ; free physical = 3980 ; free virtual = 6374
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2142.148 ; gain = 27.750 ; free physical = 1468 ; free virtual = 4907
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:13 . Memory (MB): peak = 2139.242 ; gain = 30.781 ; free physical = 3843 ; free virtual = 6254
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2142.148 ; gain = 27.750 ; free physical = 1468 ; free virtual = 4907
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:13 . Memory (MB): peak = 2139.242 ; gain = 30.781 ; free physical = 3843 ; free virtual = 6254
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.07 . Memory (MB): peak = 2145.117 ; gain = 0.000 ; free physical = 1457 ; free virtual = 4896
+Netlist sorting complete. Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.07 . Memory (MB): peak = 2145.180 ; gain = 0.000 ; free physical = 3949 ; free virtual = 6372
 INFO: [Netlist 29-17] Analyzing 207 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -1147,22 +1148,22 @@ Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBo
 Finished Parsing XDC File [/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_emc_0_0/design_1_axi_emc_0_0.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2299.961 ; gain = 0.000 ; free physical = 1362 ; free virtual = 4800
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2302.023 ; gain = 0.000 ; free physical = 3841 ; free virtual = 6268
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 79 instances were transformed.
   FDR => FDRE: 15 instances
   MULT_AND => LUT2: 64 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.34 ; elapsed = 00:00:00.14 . Memory (MB): peak = 2309.867 ; gain = 9.906 ; free physical = 1359 ; free virtual = 4798
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.25 ; elapsed = 00:00:00.10 . Memory (MB): peak = 2310.930 ; gain = 8.906 ; free physical = 3832 ; free virtual = 6259
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2309.867 ; gain = 195.469 ; free physical = 1389 ; free virtual = 4828
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:19 . Memory (MB): peak = 2310.930 ; gain = 202.469 ; free physical = 3761 ; free virtual = 6225
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a12tcsg325-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2309.867 ; gain = 195.469 ; free physical = 1389 ; free virtual = 4828
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:19 . Memory (MB): peak = 2310.930 ; gain = 202.469 ; free physical = 3760 ; free virtual = 6225
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -1172,7 +1173,7 @@ Applied set_property IOB = TRUE for U0/EMC_CTRL_I/IO_REGISTERS_I/mem_dq_o_reg_re
 Applied set_property IOB = TRUE for U0/EMC_CTRL_I/IO_REGISTERS_I/\mem_cen_reg_reg[0] . (constraint file  /home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_emc_0_0/design_1_axi_emc_0_0.xdc, line 50).
 Applied set_property IOB = TRUE for U0/EMC_CTRL_I/IO_REGISTERS_I/mem_dq_t_reg_reg. (constraint file  /home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.srcs/sources_1/bd/design_1/ip/design_1_axi_emc_0_0/design_1_axi_emc_0_0.xdc, line 52).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2309.867 ; gain = 195.469 ; free physical = 1389 ; free virtual = 4828
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:19 . Memory (MB): peak = 2310.930 ; gain = 202.469 ; free physical = 3761 ; free virtual = 6228
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'emc_addr_ps_reg' in module 'axi_emc_native_interface'
 INFO: [Synth 8-802] inferred FSM for state register 'crnt_state_reg' in module 'mem_state_machine'
@@ -1211,7 +1212,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'emc_addr_ps_reg' using enc
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'crnt_state_reg' using encoding 'sequential' in module 'mem_state_machine'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 2309.867 ; gain = 195.469 ; free physical = 1352 ; free virtual = 4793
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:21 . Memory (MB): peak = 2310.930 ; gain = 202.469 ; free physical = 3641 ; free virtual = 6116
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -1283,25 +1284,25 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2309.867 ; gain = 195.469 ; free physical = 1278 ; free virtual = 4724
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:25 . Memory (MB): peak = 2310.930 ; gain = 202.469 ; free physical = 3298 ; free virtual = 5845
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 2309.867 ; gain = 195.469 ; free physical = 1306 ; free virtual = 4753
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:30 . Memory (MB): peak = 2310.930 ; gain = 202.469 ; free physical = 3521 ; free virtual = 6245
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 2309.867 ; gain = 195.469 ; free physical = 1222 ; free virtual = 4669
+Finished Timing Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:33 . Memory (MB): peak = 2310.930 ; gain = 202.469 ; free physical = 3930 ; free virtual = 7027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 2309.867 ; gain = 195.469 ; free physical = 1212 ; free virtual = 4659
+Finished Technology Mapping : Time (s): cpu = 00:00:24 ; elapsed = 00:00:33 . Memory (MB): peak = 2310.930 ; gain = 202.469 ; free physical = 3916 ; free virtual = 7029
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -1328,37 +1329,37 @@ INFO: [Synth 8-4163] Replicating register \U0/EMC_CTRL_I/IO_REGISTERS_I/mem_wen_
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 2309.867 ; gain = 195.469 ; free physical = 1232 ; free virtual = 4686
+Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:35 . Memory (MB): peak = 2310.930 ; gain = 202.469 ; free physical = 4332 ; free virtual = 7536
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 2309.867 ; gain = 195.469 ; free physical = 1232 ; free virtual = 4686
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:35 . Memory (MB): peak = 2310.930 ; gain = 202.469 ; free physical = 4331 ; free virtual = 7536
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 2309.867 ; gain = 195.469 ; free physical = 1232 ; free virtual = 4686
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:27 ; elapsed = 00:00:35 . Memory (MB): peak = 2310.930 ; gain = 202.469 ; free physical = 4307 ; free virtual = 7531
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 2309.867 ; gain = 195.469 ; free physical = 1232 ; free virtual = 4686
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:27 ; elapsed = 00:00:35 . Memory (MB): peak = 2310.930 ; gain = 202.469 ; free physical = 4305 ; free virtual = 7531
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 2309.867 ; gain = 195.469 ; free physical = 1232 ; free virtual = 4686
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:27 ; elapsed = 00:00:36 . Memory (MB): peak = 2310.930 ; gain = 202.469 ; free physical = 4300 ; free virtual = 7530
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 2309.867 ; gain = 195.469 ; free physical = 1232 ; free virtual = 4686
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:27 ; elapsed = 00:00:36 . Memory (MB): peak = 2310.930 ; gain = 202.469 ; free physical = 4299 ; free virtual = 7529
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1406,13 +1407,13 @@ Report Cell Usage:
 |16    |FDSE     |    62|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 2309.867 ; gain = 195.469 ; free physical = 1232 ; free virtual = 4686
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:27 ; elapsed = 00:00:36 . Memory (MB): peak = 2310.930 ; gain = 202.469 ; free physical = 4299 ; free virtual = 7529
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 2309.867 ; gain = 27.750 ; free physical = 1283 ; free virtual = 4736
-Synthesis Optimization Complete : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 2309.867 ; gain = 195.469 ; free physical = 1283 ; free virtual = 4736
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:33 . Memory (MB): peak = 2310.930 ; gain = 30.781 ; free physical = 4340 ; free virtual = 7572
+Synthesis Optimization Complete : Time (s): cpu = 00:00:27 ; elapsed = 00:00:36 . Memory (MB): peak = 2310.930 ; gain = 202.469 ; free physical = 4340 ; free virtual = 7572
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2309.867 ; gain = 0.000 ; free physical = 1355 ; free virtual = 4808
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2310.930 ; gain = 0.000 ; free physical = 4398 ; free virtual = 7633
 INFO: [Netlist 29-17] Analyzing 356 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -1481,7 +1482,7 @@ WARNING: [Constraints 18-5572] Instance U0/mem_a_int_reg[6] has IOB constraint s
 WARNING: [Constraints 18-5572] Instance U0/mem_a_int_reg[7] has IOB constraint set, However, the instance does not seem to have valid I/O connection to be placed into I/O. The constraint on the instance will be ignored.
 WARNING: [Constraints 18-5572] Instance U0/mem_a_int_reg[8] has IOB constraint set, However, the instance does not seem to have valid I/O connection to be placed into I/O. The constraint on the instance will be ignored.
 WARNING: [Constraints 18-5572] Instance U0/mem_a_int_reg[9] has IOB constraint set, However, the instance does not seem to have valid I/O connection to be placed into I/O. The constraint on the instance will be ignored.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2339.180 ; gain = 0.000 ; free physical = 1300 ; free virtual = 4754
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2339.242 ; gain = 0.000 ; free physical = 4268 ; free virtual = 7512
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 71 instances were transformed.
   (MUXCY,XORCY) => CARRY4: 19 instances
@@ -1489,19 +1490,17 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   MULT_AND => LUT2: 46 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-294 Infos, 68 Warnings, 0 Critical Warnings and 0 Errors encountered.
+297 Infos, 67 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:39 ; elapsed = 00:00:39 . Memory (MB): peak = 2339.180 ; gain = 224.875 ; free physical = 1481 ; free virtual = 4934
-INFO: [Common 17-600] The following parameters have non-default value.
-tcl.collectionResultDisplayLimit
+synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:41 . Memory (MB): peak = 2339.242 ; gain = 230.875 ; free physical = 4437 ; free virtual = 7684
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.runs/design_1_axi_emc_0_0_synth_1/design_1_axi_emc_0_0.dcp' has been generated.
 WARNING: [Common 17-576] 'use_project_ipc' is deprecated. This option is deprecated and no longer used.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_axi_emc_0_0, cache-ID = 5edb18640a8f2efa
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_axi_emc_0_0, cache-ID = eb69b04c39460fe8
 INFO: [Coretcl 2-1174] Renamed 23 cell refs.
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint '/home/jacob/Documents/ArtixIRDevBoard/hardwareprj/ArtixIRDevBoard.runs/design_1_axi_emc_0_0_synth_1/design_1_axi_emc_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_axi_emc_0_0_utilization_synth.rpt -pb design_1_axi_emc_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Sep 11 22:30:15 2020...
+INFO: [Common 17-206] Exiting Vivado at Wed Sep 30 20:59:41 2020...

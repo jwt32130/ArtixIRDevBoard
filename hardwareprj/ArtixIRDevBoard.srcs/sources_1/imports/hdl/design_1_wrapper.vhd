@@ -15,10 +15,21 @@ entity design_1_wrapper is
   port (
     CS_0 : out STD_LOGIC;
     Clk100 : in STD_LOGIC;
+    ClockOut200Mhz_0 : out STD_LOGIC;
     DCX_0 : out STD_LOGIC;
     IM0_0 : out STD_LOGIC;
     LCD_Data_0 : out STD_LOGIC_VECTOR ( 15 downto 0 );
     RD_0 : out STD_LOGIC;
+    RPC_CK_0 : out STD_LOGIC;
+    RPC_CK_N_0 : out STD_LOGIC;
+    RPC_CS0_N_0 : out STD_LOGIC;
+    RPC_CS1_N_0 : out STD_LOGIC;
+    RPC_DQ_0 : inout STD_LOGIC_VECTOR ( 7 downto 0 );
+    RPC_INT_N_0 : in STD_LOGIC;
+    RPC_RESET_N_0 : out STD_LOGIC;
+    RPC_RSTO_N_0 : in STD_LOGIC;
+    RPC_RWDS_0 : inout STD_LOGIC;
+    RPC_WP_N_0 : out STD_LOGIC;
     ResetDisplay_0 : out STD_LOGIC;
     WR_0 : out STD_LOGIC;
     emc_rtl_0_addr : out STD_LOGIC_VECTOR ( 18 downto 0 );
@@ -36,12 +47,12 @@ entity design_1_wrapper is
     -- emc_rtl_0_rpn : out STD_LOGIC;
     -- emc_rtl_0_wait : in STD_LOGIC_VECTOR ( 0 to 0 );
     emc_rtl_0_wen : out STD_LOGIC;
-    spi_rtl_0_io0_io : inout STD_LOGIC;
-    spi_rtl_0_io1_io : inout STD_LOGIC;
-    spi_rtl_0_io2_io : inout STD_LOGIC;
-    spi_rtl_0_io3_io : inout STD_LOGIC;
-    spi_rtl_0_sck_io : inout STD_LOGIC;
-    spi_rtl_0_ss_io : inout STD_LOGIC_VECTOR ( 0 to 0 );
+    -- spi_rtl_0_io0_io : inout STD_LOGIC;
+    -- spi_rtl_0_io1_io : inout STD_LOGIC;
+    -- spi_rtl_0_io2_io : inout STD_LOGIC;
+    -- spi_rtl_0_io3_io : inout STD_LOGIC;
+    -- spi_rtl_0_sck_io : inout STD_LOGIC;
+    -- spi_rtl_0_ss_io : inout STD_LOGIC_VECTOR ( 0 to 0 );
     uart_rtl_0_rxd : in STD_LOGIC;
     uart_rtl_0_txd : out STD_LOGIC
   );
@@ -58,24 +69,6 @@ architecture STRUCTURE of design_1_wrapper is
     IM0_0 : out STD_LOGIC;
     ResetDisplay_0 : out STD_LOGIC;
     LCD_Data_0 : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    spi_rtl_0_io0_i : in STD_LOGIC;
-    spi_rtl_0_io0_o : out STD_LOGIC;
-    spi_rtl_0_io0_t : out STD_LOGIC;
-    spi_rtl_0_io1_i : in STD_LOGIC;
-    spi_rtl_0_io1_o : out STD_LOGIC;
-    spi_rtl_0_io1_t : out STD_LOGIC;
-    spi_rtl_0_io2_i : in STD_LOGIC;
-    spi_rtl_0_io2_o : out STD_LOGIC;
-    spi_rtl_0_io2_t : out STD_LOGIC;
-    spi_rtl_0_io3_i : in STD_LOGIC;
-    spi_rtl_0_io3_o : out STD_LOGIC;
-    spi_rtl_0_io3_t : out STD_LOGIC;
-    spi_rtl_0_sck_i : in STD_LOGIC;
-    spi_rtl_0_sck_o : out STD_LOGIC;
-    spi_rtl_0_sck_t : out STD_LOGIC;
-    spi_rtl_0_ss_i : in STD_LOGIC_VECTOR ( 0 to 0 );
-    spi_rtl_0_ss_o : out STD_LOGIC_VECTOR ( 0 to 0 );
-    spi_rtl_0_ss_t : out STD_LOGIC;
     uart_rtl_0_rxd : in STD_LOGIC;
     uart_rtl_0_txd : out STD_LOGIC;
     emc_rtl_0_addr : out STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -94,7 +87,18 @@ architecture STRUCTURE of design_1_wrapper is
     emc_rtl_0_rnw : out STD_LOGIC;
     emc_rtl_0_rpn : out STD_LOGIC;
     emc_rtl_0_wait : in STD_LOGIC_VECTOR ( 0 to 0 );
-    emc_rtl_0_wen : out STD_LOGIC
+    emc_rtl_0_wen : out STD_LOGIC;
+    ClockOut200Mhz_0 : out STD_LOGIC;
+    RPC_CK_0 : out STD_LOGIC;
+    RPC_CK_N_0 : out STD_LOGIC;
+    RPC_CS0_N_0 : out STD_LOGIC;
+    RPC_CS1_N_0 : out STD_LOGIC;
+    RPC_WP_N_0 : out STD_LOGIC;
+    RPC_RESET_N_0 : out STD_LOGIC;
+    RPC_RWDS_0 : inout STD_LOGIC;
+    RPC_DQ_0 : inout STD_LOGIC_VECTOR ( 7 downto 0 );
+    RPC_INT_N_0 : in STD_LOGIC;
+    RPC_RSTO_N_0 : in STD_LOGIC
   );
   end component design_1;
   component IOBUF is
@@ -137,25 +141,6 @@ architecture STRUCTURE of design_1_wrapper is
   signal emc_rtl_0_dq_t_5 : STD_LOGIC_VECTOR ( 5 to 5 );
   signal emc_rtl_0_dq_t_6 : STD_LOGIC_VECTOR ( 6 to 6 );
   signal emc_rtl_0_dq_t_7 : STD_LOGIC_VECTOR ( 7 to 7 );
-  signal spi_rtl_0_io0_i : STD_LOGIC;
-  signal spi_rtl_0_io0_o : STD_LOGIC;
-  signal spi_rtl_0_io0_t : STD_LOGIC;
-  signal spi_rtl_0_io1_i : STD_LOGIC;
-  signal spi_rtl_0_io1_o : STD_LOGIC;
-  signal spi_rtl_0_io1_t : STD_LOGIC;
-  signal spi_rtl_0_io2_i : STD_LOGIC;
-  signal spi_rtl_0_io2_o : STD_LOGIC;
-  signal spi_rtl_0_io2_t : STD_LOGIC;
-  signal spi_rtl_0_io3_i : STD_LOGIC;
-  signal spi_rtl_0_io3_o : STD_LOGIC;
-  signal spi_rtl_0_io3_t : STD_LOGIC;
-  signal spi_rtl_0_sck_i : STD_LOGIC;
-  signal spi_rtl_0_sck_o : STD_LOGIC;
-  signal spi_rtl_0_sck_t : STD_LOGIC;
-  signal spi_rtl_0_ss_i_0 : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal spi_rtl_0_ss_io_0 : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal spi_rtl_0_ss_o_0 : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal spi_rtl_0_ss_t : STD_LOGIC;
   signal emc_rtl_0_addr_DUMMY : STD_LOGIC_VECTOR(31 downto 19);
   signal emc_rtl_0_adv_ldn_DUMMY : STD_LOGIC;
   signal emc_rtl_0_ben_DUMMY : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -172,10 +157,21 @@ design_1_i: component design_1
      port map (
       CS_0 => CS_0,
       Clk100 => Clk100,
+      ClockOut200Mhz_0 => ClockOut200Mhz_0,
       DCX_0 => DCX_0,
       IM0_0 => IM0_0,
       LCD_Data_0(15 downto 0) => LCD_Data_0(15 downto 0),
       RD_0 => RD_0,
+      RPC_CK_0 => RPC_CK_0,
+      RPC_CK_N_0 => RPC_CK_N_0,
+      RPC_CS0_N_0 => RPC_CS0_N_0,
+      RPC_CS1_N_0 => RPC_CS1_N_0,
+      RPC_DQ_0(7 downto 0) => RPC_DQ_0(7 downto 0),
+      RPC_INT_N_0 => RPC_INT_N_0,
+      RPC_RESET_N_0 => RPC_RESET_N_0,
+      RPC_RSTO_N_0 => RPC_RSTO_N_0,
+      RPC_RWDS_0 => RPC_RWDS_0,
+      RPC_WP_N_0 => RPC_WP_N_0,
       ResetDisplay_0 => ResetDisplay_0,
       WR_0 => WR_0,
       emc_rtl_0_addr(31 downto 19) => emc_rtl_0_addr_DUMMY(31 downto 19),
@@ -217,24 +213,6 @@ design_1_i: component design_1
       emc_rtl_0_rpn => emc_rtl_0_rpn_DUMMY,
       emc_rtl_0_wait(0) => emc_rtl_0_wait_DUMMY(0),
       emc_rtl_0_wen => emc_rtl_0_wen,
-      spi_rtl_0_io0_i => spi_rtl_0_io0_i,
-      spi_rtl_0_io0_o => spi_rtl_0_io0_o,
-      spi_rtl_0_io0_t => spi_rtl_0_io0_t,
-      spi_rtl_0_io1_i => spi_rtl_0_io1_i,
-      spi_rtl_0_io1_o => spi_rtl_0_io1_o,
-      spi_rtl_0_io1_t => spi_rtl_0_io1_t,
-      spi_rtl_0_io2_i => spi_rtl_0_io2_i,
-      spi_rtl_0_io2_o => spi_rtl_0_io2_o,
-      spi_rtl_0_io2_t => spi_rtl_0_io2_t,
-      spi_rtl_0_io3_i => spi_rtl_0_io3_i,
-      spi_rtl_0_io3_o => spi_rtl_0_io3_o,
-      spi_rtl_0_io3_t => spi_rtl_0_io3_t,
-      spi_rtl_0_sck_i => spi_rtl_0_sck_i,
-      spi_rtl_0_sck_o => spi_rtl_0_sck_o,
-      spi_rtl_0_sck_t => spi_rtl_0_sck_t,
-      spi_rtl_0_ss_i(0) => spi_rtl_0_ss_i_0(0),
-      spi_rtl_0_ss_o(0) => spi_rtl_0_ss_o_0(0),
-      spi_rtl_0_ss_t => spi_rtl_0_ss_t,
       uart_rtl_0_rxd => uart_rtl_0_rxd,
       uart_rtl_0_txd => uart_rtl_0_txd
     );
@@ -293,47 +271,5 @@ emc_rtl_0_dq_iobuf_7: component IOBUF
       IO => emc_rtl_0_dq_io(7),
       O => emc_rtl_0_dq_i_7(7),
       T => emc_rtl_0_dq_t_7(7)
-    );
-spi_rtl_0_io0_iobuf: component IOBUF
-     port map (
-      I => spi_rtl_0_io0_o,
-      IO => spi_rtl_0_io0_io,
-      O => spi_rtl_0_io0_i,
-      T => spi_rtl_0_io0_t
-    );
-spi_rtl_0_io1_iobuf: component IOBUF
-     port map (
-      I => spi_rtl_0_io1_o,
-      IO => spi_rtl_0_io1_io,
-      O => spi_rtl_0_io1_i,
-      T => spi_rtl_0_io1_t
-    );
-spi_rtl_0_io2_iobuf: component IOBUF
-     port map (
-      I => spi_rtl_0_io2_o,
-      IO => spi_rtl_0_io2_io,
-      O => spi_rtl_0_io2_i,
-      T => spi_rtl_0_io2_t
-    );
-spi_rtl_0_io3_iobuf: component IOBUF
-     port map (
-      I => spi_rtl_0_io3_o,
-      IO => spi_rtl_0_io3_io,
-      O => spi_rtl_0_io3_i,
-      T => spi_rtl_0_io3_t
-    );
-spi_rtl_0_sck_iobuf: component IOBUF
-     port map (
-      I => spi_rtl_0_sck_o,
-      IO => spi_rtl_0_sck_io,
-      O => spi_rtl_0_sck_i,
-      T => spi_rtl_0_sck_t
-    );
-spi_rtl_0_ss_iobuf_0: component IOBUF
-     port map (
-      I => spi_rtl_0_ss_o_0(0),
-      IO => spi_rtl_0_ss_io(0),
-      O => spi_rtl_0_ss_i_0(0),
-      T => spi_rtl_0_ss_t
     );
 end STRUCTURE;

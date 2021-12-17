@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
---Date        : Fri Sep 11 22:17:47 2020
+--Date        : Sat Jan 16 18:45:42 2021
 --Host        : jacob-VirtualBox running 64-bit Ubuntu 20.04.1 LTS
 --Command     : generate_target design_1_wrapper.bd
 --Design      : design_1_wrapper
@@ -15,6 +15,7 @@ entity design_1_wrapper is
   port (
     CS_0 : out STD_LOGIC;
     Clk100 : in STD_LOGIC;
+    ClockOut200Mhz_0 : out STD_LOGIC;
     DCX_0 : out STD_LOGIC;
     IM0_0 : out STD_LOGIC;
     LCD_Data_0 : out STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -36,12 +37,6 @@ entity design_1_wrapper is
     emc_rtl_0_rpn : out STD_LOGIC;
     emc_rtl_0_wait : in STD_LOGIC_VECTOR ( 0 to 0 );
     emc_rtl_0_wen : out STD_LOGIC;
-    spi_rtl_0_io0_io : inout STD_LOGIC;
-    spi_rtl_0_io1_io : inout STD_LOGIC;
-    spi_rtl_0_io2_io : inout STD_LOGIC;
-    spi_rtl_0_io3_io : inout STD_LOGIC;
-    spi_rtl_0_sck_io : inout STD_LOGIC;
-    spi_rtl_0_ss_io : inout STD_LOGIC_VECTOR ( 0 to 0 );
     uart_rtl_0_rxd : in STD_LOGIC;
     uart_rtl_0_txd : out STD_LOGIC
   );
@@ -58,24 +53,7 @@ architecture STRUCTURE of design_1_wrapper is
     IM0_0 : out STD_LOGIC;
     ResetDisplay_0 : out STD_LOGIC;
     LCD_Data_0 : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    spi_rtl_0_io0_i : in STD_LOGIC;
-    spi_rtl_0_io0_o : out STD_LOGIC;
-    spi_rtl_0_io0_t : out STD_LOGIC;
-    spi_rtl_0_io1_i : in STD_LOGIC;
-    spi_rtl_0_io1_o : out STD_LOGIC;
-    spi_rtl_0_io1_t : out STD_LOGIC;
-    spi_rtl_0_io2_i : in STD_LOGIC;
-    spi_rtl_0_io2_o : out STD_LOGIC;
-    spi_rtl_0_io2_t : out STD_LOGIC;
-    spi_rtl_0_io3_i : in STD_LOGIC;
-    spi_rtl_0_io3_o : out STD_LOGIC;
-    spi_rtl_0_io3_t : out STD_LOGIC;
-    spi_rtl_0_sck_i : in STD_LOGIC;
-    spi_rtl_0_sck_o : out STD_LOGIC;
-    spi_rtl_0_sck_t : out STD_LOGIC;
-    spi_rtl_0_ss_i : in STD_LOGIC_VECTOR ( 0 to 0 );
-    spi_rtl_0_ss_o : out STD_LOGIC_VECTOR ( 0 to 0 );
-    spi_rtl_0_ss_t : out STD_LOGIC;
+    ClockOut200Mhz_0 : out STD_LOGIC;
     uart_rtl_0_rxd : in STD_LOGIC;
     uart_rtl_0_txd : out STD_LOGIC;
     emc_rtl_0_addr : out STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -137,30 +115,12 @@ architecture STRUCTURE of design_1_wrapper is
   signal emc_rtl_0_dq_t_5 : STD_LOGIC_VECTOR ( 5 to 5 );
   signal emc_rtl_0_dq_t_6 : STD_LOGIC_VECTOR ( 6 to 6 );
   signal emc_rtl_0_dq_t_7 : STD_LOGIC_VECTOR ( 7 to 7 );
-  signal spi_rtl_0_io0_i : STD_LOGIC;
-  signal spi_rtl_0_io0_o : STD_LOGIC;
-  signal spi_rtl_0_io0_t : STD_LOGIC;
-  signal spi_rtl_0_io1_i : STD_LOGIC;
-  signal spi_rtl_0_io1_o : STD_LOGIC;
-  signal spi_rtl_0_io1_t : STD_LOGIC;
-  signal spi_rtl_0_io2_i : STD_LOGIC;
-  signal spi_rtl_0_io2_o : STD_LOGIC;
-  signal spi_rtl_0_io2_t : STD_LOGIC;
-  signal spi_rtl_0_io3_i : STD_LOGIC;
-  signal spi_rtl_0_io3_o : STD_LOGIC;
-  signal spi_rtl_0_io3_t : STD_LOGIC;
-  signal spi_rtl_0_sck_i : STD_LOGIC;
-  signal spi_rtl_0_sck_o : STD_LOGIC;
-  signal spi_rtl_0_sck_t : STD_LOGIC;
-  signal spi_rtl_0_ss_i_0 : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal spi_rtl_0_ss_io_0 : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal spi_rtl_0_ss_o_0 : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal spi_rtl_0_ss_t : STD_LOGIC;
 begin
 design_1_i: component design_1
      port map (
       CS_0 => CS_0,
       Clk100 => Clk100,
+      ClockOut200Mhz_0 => ClockOut200Mhz_0,
       DCX_0 => DCX_0,
       IM0_0 => IM0_0,
       LCD_Data_0(15 downto 0) => LCD_Data_0(15 downto 0),
@@ -205,24 +165,6 @@ design_1_i: component design_1
       emc_rtl_0_rpn => emc_rtl_0_rpn,
       emc_rtl_0_wait(0) => emc_rtl_0_wait(0),
       emc_rtl_0_wen => emc_rtl_0_wen,
-      spi_rtl_0_io0_i => spi_rtl_0_io0_i,
-      spi_rtl_0_io0_o => spi_rtl_0_io0_o,
-      spi_rtl_0_io0_t => spi_rtl_0_io0_t,
-      spi_rtl_0_io1_i => spi_rtl_0_io1_i,
-      spi_rtl_0_io1_o => spi_rtl_0_io1_o,
-      spi_rtl_0_io1_t => spi_rtl_0_io1_t,
-      spi_rtl_0_io2_i => spi_rtl_0_io2_i,
-      spi_rtl_0_io2_o => spi_rtl_0_io2_o,
-      spi_rtl_0_io2_t => spi_rtl_0_io2_t,
-      spi_rtl_0_io3_i => spi_rtl_0_io3_i,
-      spi_rtl_0_io3_o => spi_rtl_0_io3_o,
-      spi_rtl_0_io3_t => spi_rtl_0_io3_t,
-      spi_rtl_0_sck_i => spi_rtl_0_sck_i,
-      spi_rtl_0_sck_o => spi_rtl_0_sck_o,
-      spi_rtl_0_sck_t => spi_rtl_0_sck_t,
-      spi_rtl_0_ss_i(0) => spi_rtl_0_ss_i_0(0),
-      spi_rtl_0_ss_o(0) => spi_rtl_0_ss_o_0(0),
-      spi_rtl_0_ss_t => spi_rtl_0_ss_t,
       uart_rtl_0_rxd => uart_rtl_0_rxd,
       uart_rtl_0_txd => uart_rtl_0_txd
     );
@@ -281,47 +223,5 @@ emc_rtl_0_dq_iobuf_7: component IOBUF
       IO => emc_rtl_0_dq_io(7),
       O => emc_rtl_0_dq_i_7(7),
       T => emc_rtl_0_dq_t_7(7)
-    );
-spi_rtl_0_io0_iobuf: component IOBUF
-     port map (
-      I => spi_rtl_0_io0_o,
-      IO => spi_rtl_0_io0_io,
-      O => spi_rtl_0_io0_i,
-      T => spi_rtl_0_io0_t
-    );
-spi_rtl_0_io1_iobuf: component IOBUF
-     port map (
-      I => spi_rtl_0_io1_o,
-      IO => spi_rtl_0_io1_io,
-      O => spi_rtl_0_io1_i,
-      T => spi_rtl_0_io1_t
-    );
-spi_rtl_0_io2_iobuf: component IOBUF
-     port map (
-      I => spi_rtl_0_io2_o,
-      IO => spi_rtl_0_io2_io,
-      O => spi_rtl_0_io2_i,
-      T => spi_rtl_0_io2_t
-    );
-spi_rtl_0_io3_iobuf: component IOBUF
-     port map (
-      I => spi_rtl_0_io3_o,
-      IO => spi_rtl_0_io3_io,
-      O => spi_rtl_0_io3_i,
-      T => spi_rtl_0_io3_t
-    );
-spi_rtl_0_sck_iobuf: component IOBUF
-     port map (
-      I => spi_rtl_0_sck_o,
-      IO => spi_rtl_0_sck_io,
-      O => spi_rtl_0_sck_i,
-      T => spi_rtl_0_sck_t
-    );
-spi_rtl_0_ss_iobuf_0: component IOBUF
-     port map (
-      I => spi_rtl_0_ss_o_0(0),
-      IO => spi_rtl_0_ss_io(0),
-      O => spi_rtl_0_ss_i_0(0),
-      T => spi_rtl_0_ss_t
     );
 end STRUCTURE;
